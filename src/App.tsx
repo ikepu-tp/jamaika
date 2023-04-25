@@ -62,10 +62,6 @@ function AppWrapper({
   }
   return (
     <>
-      <div>
-        <p>&copy; Y.I.</p>
-        <p>無断での利用を禁ずる</p>
-      </div>
       <div>{children}</div>
       <div>
         <button onClick={change} value={"jamaika"}>
