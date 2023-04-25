@@ -13,6 +13,12 @@
   }
 }
 
-.mb-2 {
+.dice-wrapper {
+  height: 80vh;
+  margin: auto;
   margin-bottom: 1rem;
+  width: 200px;
+  .dice {
+    transform: scale(4, 4) translate(0, 40%);
+  }
 }

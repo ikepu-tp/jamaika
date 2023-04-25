@@ -39,12 +39,14 @@ function DiceWrapper() {
   }
 
   return (
-    <div className="mb-2">
-      <Dice seconds={Second} done={done} />
+    <>
       <button className="button" onClick={start}>
         start
       </button>
-    </div>
+      <div className="dice-wrapper">
+        <Dice seconds={Second} done={done} />
+      </div>
+    </>
   );
 }
 
