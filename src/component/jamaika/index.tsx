@@ -14,6 +14,9 @@ export default function Jamaika(): JSX.Element {
   return (
     <div className="jamaika">
       <h1>ジャマイカ</h1>
+      <p>
+        黒のサイコロの和になるように白のサイコロ全ての数字を1回ずつ四足演算しよう！
+      </p>
       <div>
         <button
           onClick={start}
