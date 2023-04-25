@@ -1,0 +1,65 @@
+.jamaika {
+  height: 90vh;
+  position: relative;
+  width: 100vw;
+  .jamaika-element {
+    //background-color: green;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    width: 200px;
+    z-index: 10;
+    &.center {
+      //box-sizing: border-box;
+      left: 50vw;
+      top: 50vh;
+      padding: 5vw 8vw;
+      //width: 28vw;
+      z-index: 0;
+    }
+    &.top,
+    &.bottom {
+      left: 40vw;
+    }
+    &.top,
+    &.front {
+      top: 28vh;
+    }
+    &.left,
+    &.right {
+      top: 50vh;
+    }
+    &.left {
+      left: 32vw;
+    }
+    &.bottom,
+    &.back {
+      top: 72vh;
+    }
+    &.front,
+    &.back {
+      left: 60vw;
+    }
+    &.right {
+      left: 68vw;
+    }
+
+    &.top {
+      border-radius: 50% 50% 0 50%;
+    }
+    &.front {
+      border-radius: 50% 50% 50% 0;
+    }
+    &.back {
+      border-radius: 0% 50% 50% 50%;
+    }
+    &.bottom {
+      border-radius: 50% 0% 50% 50%;
+    }
+    &.left {
+      border-radius: 50% 0% 0% 50%;
+    }
+    &.right {
+      border-radius: 0% 50% 50% 0%;
+    }
+  }
+}
