@@ -1,0 +1,134 @@
+:root {
+  --count: 2;
+  --delay: 0.01s;
+  --duration: 0.1s;
+}
+.patapata {
+  height: 80vh;
+  width: 100vw;
+  .board {
+    margin-top: 20px;
+    transform: scale(9, 9);
+    position: fixed;
+    left: 50%;
+    bottom: 40%;
+    width: 100px;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .frame {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+    perspective: 1000px;
+  }
+
+  .frame:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: calc(100% - 1px);
+    height: 1px;
+    border-bottom: 0.1px solid #000;
+    z-index: 1000;
+  }
+
+  .flip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: solid 1px #222;
+    background: #181818;
+    color: #efefef;
+    text-align: center;
+    font-size: 25px;
+    transform-style: preserve-3d;
+  }
+
+  .flip.open {
+    background: #181818;
+  }
+
+  .flip.open:before {
+    overflow: visible;
+  }
+
+  .flip.open:after {
+    overflow: hidden;
+  }
+
+  .flip:before {
+    content: attr(data-txt);
+    line-height: 2;
+    background: #393939;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 50%;
+    backface-visibility: hidden;
+  }
+
+  .flip:after {
+    content: attr(data-txt-next);
+    line-height: 2;
+    background: #262626;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    display: block;
+    width: 100%;
+    height: 50%;
+    backface-visibility: hidden;
+  }
+
+  @for $i from 1 to 100 {
+    .btn:checked + label + .frame .flip:nth-of-type(#{$i}) {
+      /* keyframe名 周期 開始タイミング 回数 アニメショーン終了後のスタイル指定 */
+      animation: frame-rotate
+        var(--duration)
+        calc(var(--delay) * $i)
+        var(--count)
+        forwards;
+    }
+  }
+  .btn:checked + label + .frame .flip:last-child {
+    display: none;
+  }
+
+  @keyframes frame-rotate {
+    0% {
+      -webkit-transform: rotateX(0);
+      transform: rotateX(0);
+      z-index: 100;
+    }
+    10% {
+      -webkit-transform: rotateX(-180deg);
+      transform: rotateX(-180deg);
+      z-index: 100;
+    }
+    90% {
+      -webkit-transform: rotateX(-180deg);
+      transform: rotateX(-180deg);
+      z-index: 1;
+    }
+    100% {
+      -webkit-transform: rotateX(-180deg);
+      transform: rotateX(-180deg);
+    }
+  }
+
+  @keyframes open {
+    0% {
+    }
+    100% {
+      visibility: hidden;
+    }
+  }
+}

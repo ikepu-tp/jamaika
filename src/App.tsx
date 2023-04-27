@@ -3,6 +3,7 @@ import "./app.css";
 import { ReactNode, useState } from "react";
 import { MouseEvent } from "react";
 import Dice from "component/Dice";
+import Patapata from "component/Patapata";
 
 function App() {
   const [Application, setApp] = useState<string>("");
@@ -20,7 +21,14 @@ function App() {
     case "dice":
       return (
         <AppWrapper changeApp={changeApp}>
+          <h2>サイコロ</h2>
           <DiceWrapper />
+        </AppWrapper>
+      );
+    case "patapata":
+      return (
+        <AppWrapper changeApp={changeApp}>
+          <Patapata />
         </AppWrapper>
       );
     default:
@@ -69,6 +77,9 @@ function AppWrapper({
         </button>
         <button onClick={change} value={"dice"}>
           サイコロ
+        </button>
+        <button onClick={change} value={"patapata"}>
+          パタパタ
         </button>
       </div>
     </>
